@@ -15,3 +15,165 @@ html[data-theme="light"] {
   --forge-2: #f59e0b;
   --forge-soft: rgba(232, 121, 18, 0.12);
 }
+
+html[data-theme="light"] .app-shell {
+  background: radial-gradient(circle at 52% -20%, rgba(232, 121, 18, .055), transparent 38%), var(--bg-main);
+}
+
+html[data-theme="light"] .sidebar {
+  border-right-color: var(--border);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+html[data-theme="light"] .nav-section-label {
+  color: #8a94a3;
+}
+
+html[data-theme="light"] .nav-item {
+  color: #596273;
+}
+
+html[data-theme="light"] .nav-item:hover {
+  background: #f2f4f7;
+  color: #111827;
+}
+
+html[data-theme="light"] .nav-item.active {
+  color: #111827;
+  background: linear-gradient(90deg, rgba(232,121,18,.10), rgba(232,121,18,.035));
+}
+
+html[data-theme="light"] .avatar,
+html[data-theme="light"] .top-avatar {
+  border-color: #d1d7df;
+  background: linear-gradient(135deg, #eef2f7, #dfe7eb);
+  color: #27313c;
+}
+
+html[data-theme="light"] .thin-progress,
+html[data-theme="light"] .mastery-track,
+html[data-theme="light"] .study-track {
+  background: #e5e9ee;
+}
+
+html[data-theme="light"] .topbar {
+  border-bottom-color: var(--border);
+  background: rgba(255, 255, 255, .88);
+}
+
+html[data-theme="light"] .command-search {
+  border-color: var(--border);
+  background: #ffffff;
+  color: #8a93a0;
+}
+
+html[data-theme="light"] .command-search kbd {
+  border-color: #d8dde4;
+  background: #f5f6f8;
+  color: #687281;
+}
+
+html[data-theme="light"] .icon-button {
+  color: #677181;
+}
+
+html[data-theme="light"] .icon-button:hover {
+  background: #eef1f4;
+  color: #111827;
+}
+
+html[data-theme="light"] .today-right-rail {
+  border-left-color: var(--border);
+}
+
+html[data-theme="light"] .today-header h1,
+html[data-theme="light"] .task-copy h2,
+html[data-theme="light"] .upcoming-copy strong,
+html[data-theme="light"] .study-label,
+html[data-theme="light"] .calendar-head h3,
+html[data-theme="light"] .right-card h3 {
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .today-header p,
+html[data-theme="light"] .task-copy p,
+html[data-theme="light"] .upcoming-copy span,
+html[data-theme="light"] .upcoming-copy small,
+html[data-theme="light"] .meta-time {
+  color: var(--text-secondary);
+}
+
+html[data-theme="light"] .section-kicker {
+  color: #747f8d;
+}
+
+html[data-theme="light"] .next-task-card {
+  border-color: rgba(232, 121, 18, .58);
+  background: radial-gradient(circle at 76% 28%, rgba(232,121,18,.08), transparent 34%), linear-gradient(120deg,#ffffff,#fbfcfd 72%);
+  box-shadow: 0 12px 36px rgba(17,24,39,.045), inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+html[data-theme="light"] .pill {
+  border-color: #dce1e7;
+  background: #f4f6f8;
+  color: #505b69;
+}
+
+html[data-theme="light"] .upcoming-card,
+html[data-theme="light"] .study-card,
+html[data-theme="light"] .right-card {
+  border-color: var(--border);
+  background: linear-gradient(145deg, #ffffff, #fafbfc);
+  box-shadow: 0 8px 28px rgba(17,24,39,.035);
+}
+
+html[data-theme="light"] .upcoming-card:hover {
+  border-color: var(--border-strong);
+}
+
+html[data-theme="light"] .upcoming-number,
+html[data-theme="light"] .study-row strong,
+html[data-theme="light"] .calendar-weekdays,
+html[data-theme="light"] .calendar-grid span,
+html[data-theme="light"] .streak-card p,
+html[data-theme="light"] .mastery-row > div:first-child,
+html[data-theme="light"] .quick-action {
+  color: var(--text-secondary);
+}
+
+html[data-theme="light"] .calendar-grid span.dim {
+  color: #b4bbc5;
+}
+
+html[data-theme="light"] .calendar-grid span.active {
+  color: #ffffff;
+}
+
+html[data-theme="light"] .calendar-head button,
+html[data-theme="light"] .ghost-select {
+  color: var(--text-secondary);
+}
+
+html[data-theme="light"] .calendar-head button:hover {
+  background: #eef1f4;
+}
+
+html[data-theme="light"] .quick-action:hover {
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .study-ring::before {
+  background: #ffffff;
+}
+
+html[data-theme="light"] .skeleton {
+  background: linear-gradient(90deg,#eef1f4,#f8fafc,#eef1f4);
+  background-size: 200% 100%;
+}
+
+/* Keep the code preview dark in both themes so syntax colors remain consistent. */
+html[data-theme="light"] .code-preview {
+  border-color: #313b45;
+  background: linear-gradient(180deg,#171e25,#0d1318);
+  color: #e9edf0;
+}
