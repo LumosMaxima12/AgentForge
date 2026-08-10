@@ -9,6 +9,7 @@ import "./styles/tokens.css";
 import "./styles/themes.css";
 import "./styles/globals.css";
 import "./styles/visual-polish.css";
+import "./styles/settings.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
