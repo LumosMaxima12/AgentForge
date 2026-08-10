@@ -1,0 +1,54 @@
+:root {
+  --sidebar-width: 248px;
+  --topbar-height: 72px;
+}
+
+body {
+  font-size: 15px;
+}
+
+.sidebar {
+  padding: 28px 20px 20px;
+}
+
+.brand strong {
+  font-size: 19px;
+}
+
+.nav-item {
+  min-height: 52px;
+  font-size: 14.5px;
+}
+
+.topbar-page-title {
+  font-size: 23px;
+}
+
+.today-main {
+  padding: 52px 42px 64px 48px;
+}
+
+.today-header h1 {
+  font-size: 28px;
+}
+
+.next-task-card {
+  min-height: 290px;
+  padding: 38px 32px 28px;
+}
+
+.task-number {
+  font-size: 56px;
+}
+
+.task-copy h2 {
+  font-size: 26px;
+}
+
+.study-card {
+  min-height: 215px;
+}
+
+.today-right-rail {
+  width: 350px;
+}
