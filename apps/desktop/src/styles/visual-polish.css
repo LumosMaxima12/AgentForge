@@ -24,6 +24,23 @@ body {
   font-size: 23px;
 }
 
+.language-toggle {
+  width: auto;
+  min-width: 54px;
+  padding: 0 9px;
+  display: flex;
+  gap: 6px;
+}
+
+.language-toggle span {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.today-layout {
+  grid-template-columns: minmax(640px, 1fr) 360px;
+}
+
 .today-main {
   padding: 52px 42px 64px 48px;
 }
@@ -50,5 +67,18 @@ body {
 }
 
 .today-right-rail {
-  width: 350px;
+  width: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 1380px) {
+  .today-layout {
+    grid-template-columns: minmax(600px, 1fr) 330px;
+  }
+
+  .today-main {
+    padding-left: 38px;
+    padding-right: 32px;
+  }
 }
