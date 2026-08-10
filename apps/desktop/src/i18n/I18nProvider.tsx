@@ -105,6 +105,9 @@ const messages: Record<Language, Record<string, string>> = {
     "settings.chinese": "简体中文",
     "settings.english": "English",
     "settings.current": "当前",
+    "settings.about": "关于",
+    "settings.aboutDescription": "AgentForge 是你的 AI 工程师学习工作台。后续能力会围绕学习、实践、评估与成长逐步扩展。",
+    "settings.version": "版本 {{version}}",
 
     "placeholder.description": "这个模块会在 Today 首页基础稳定后继续开发。",
     "page.roadmap": "路线图",
@@ -197,6 +200,9 @@ const messages: Record<Language, Record<string, string>> = {
     "settings.chinese": "简体中文",
     "settings.english": "English",
     "settings.current": "Current",
+    "settings.about": "About",
+    "settings.aboutDescription": "AgentForge is your AI-engineering learning workspace, growing around learning, practice, evaluation, and progression.",
+    "settings.version": "Version {{version}}",
 
     "placeholder.description": "This module is intentionally queued behind the Today foundation.",
     "page.roadmap": "Roadmap",
