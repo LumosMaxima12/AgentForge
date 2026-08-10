@@ -1,4 +1,5 @@
 import { Check, Languages, Moon, Sun } from "lucide-react";
+import type { ReactNode } from "react";
 import { useI18n, type Language } from "../../i18n/I18nProvider";
 import { useTheme, type ThemeMode } from "../../theme/ThemeProvider";
 
@@ -84,7 +85,7 @@ function SettingsSection({
 }: {
   title: string;
   description: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <section className="settings-section">
@@ -107,7 +108,7 @@ function ThemeChoice({
 }: {
   value: ThemeMode;
   current: ThemeMode;
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
   currentLabel: string;
   onSelect: (value: ThemeMode) => void;
