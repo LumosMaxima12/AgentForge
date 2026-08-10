@@ -12,6 +12,7 @@ export type ThemeMode = "dark" | "light";
 
 type ThemeContextValue = {
   theme: ThemeMode;
+  setTheme: (theme: ThemeMode) => void;
   toggleTheme: () => void;
 };
 
@@ -25,18 +26,25 @@ function getInitialTheme(): ThemeMode {
 }
 
 export function ThemeProvider({ children }: PropsWithChildren) {
-  const [theme, setTheme] = useState<ThemeMode>(getInitialTheme);
+  const [theme, setThemeState] = useState<ThemeMode>(getInitialTheme);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 
-  const toggleTheme = useCallback(() => {
-    setTheme((current) => (current === "dark" ? "light" : "dark"));
+  const setTheme = useCallback((nextTheme: ThemeMode) => {
+    setThemeState(nextTheme);
   }, []);
 
-  const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
+  const toggleTheme = useCallback(() => {
+    setThemeState((current) => (current === "dark" ? "light" : "dark"));
+  }, []);
+
+  const value = useMemo(
+    () => ({ theme, setTheme, toggleTheme }),
+    [theme, setTheme, toggleTheme],
+  );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
