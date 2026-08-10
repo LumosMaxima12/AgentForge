@@ -1,0 +1,164 @@
+.settings-page {
+  width: min(980px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 58px 0 80px;
+}
+
+.settings-header {
+  margin-bottom: 34px;
+}
+
+.settings-header h1 {
+  margin: 6px 0 10px;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+
+.settings-header > p:last-child {
+  max-width: 640px;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.settings-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settings-section {
+  display: grid;
+  grid-template-columns: minmax(210px, .8fr) minmax(420px, 1.2fr);
+  gap: 36px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-1);
+  box-shadow: 0 8px 30px rgba(0,0,0,.04);
+}
+
+.settings-section-copy h2 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  letter-spacing: -.015em;
+}
+
+.settings-section-copy p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.settings-choice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.settings-choice {
+  min-height: 88px;
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .16s ease, background .16s ease, transform .16s ease;
+}
+
+.settings-choice:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+  transform: translateY(-1px);
+}
+
+.settings-choice.selected {
+  border-color: rgba(255, 134, 24, .62);
+  background: var(--forge-soft);
+}
+
+.settings-choice-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-1);
+  color: var(--text-secondary);
+}
+
+.settings-choice.selected .settings-choice-icon,
+.settings-choice-check {
+  color: var(--forge);
+}
+
+.settings-choice-copy strong,
+.settings-choice-copy small {
+  display: block;
+}
+
+.settings-choice-copy strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.settings-choice-copy small {
+  margin-top: 5px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.settings-about-row {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.settings-about-mark {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--forge);
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+}
+
+.settings-about-row strong,
+.settings-about-row span {
+  display: block;
+}
+
+.settings-about-row strong {
+  font-size: 15px;
+}
+
+.settings-about-row span {
+  margin-top: 5px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+@media (max-width: 1180px) {
+  .settings-page {
+    width: calc(100% - 48px);
+  }
+
+  .settings-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
