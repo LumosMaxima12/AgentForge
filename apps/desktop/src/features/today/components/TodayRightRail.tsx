@@ -8,6 +8,7 @@ import {
   MessageCircle,
   NotebookPen,
 } from "lucide-react";
+import { useI18n } from "../../../i18n/I18nProvider";
 import type { MasteryItem } from "../../../types/today";
 
 type Props = {
@@ -17,31 +18,40 @@ type Props = {
 };
 
 export function TodayRightRail({ date, streak, mastery }: Props) {
+  const { t } = useI18n();
+
   return (
     <aside className="today-right-rail">
       <CalendarPanel isoDate={date} />
       <section className="right-card streak-card">
         <div className="streak-flame"><Flame size={28} /></div>
-        <div><span>Streak</span><strong>{streak.days} <small>days</small></strong><p>Keep it up!</p></div>
+        <div>
+          <span>{t("right.streak")}</span>
+          <strong>{streak.days} <small>{t("right.days")}</small></strong>
+          <p>{t("right.keepItUp")}</p>
+        </div>
         <div className="streak-dots">{Array.from({ length: 9 }).map((_, i) => <i key={i} />)}</div>
       </section>
       <section className="right-card mastery-card">
-        <h3>Mastery Overview</h3>
+        <h3>{t("right.mastery")}</h3>
         <div className="mastery-list">
           {mastery.map((item) => (
             <div className="mastery-row" key={item.name}>
-              <div><span>{item.name}</span><strong>{item.progress}%</strong></div>
+              <div>
+                <span>{t(`mastery.${item.name}`, undefined, item.name)}</span>
+                <strong>{item.progress}%</strong>
+              </div>
               <div className="mastery-track"><span style={{ width: `${item.progress}%` }} /></div>
             </div>
           ))}
         </div>
       </section>
       <section className="right-card quick-card">
-        <h3>Quick Actions</h3>
-        <QuickAction icon={MessageCircle} label="Ask AI Tutor" />
-        <QuickAction icon={BookOpenCheck} label="Review Flashcards" />
-        <QuickAction icon={Code2} label="Open Lab" />
-        <QuickAction icon={NotebookPen} label="Capture Note" />
+        <h3>{t("right.quickActions")}</h3>
+        <QuickAction icon={MessageCircle} label={t("right.askTutor")} />
+        <QuickAction icon={BookOpenCheck} label={t("right.reviewFlashcards")} />
+        <QuickAction icon={Code2} label={t("right.openLab")} />
+        <QuickAction icon={NotebookPen} label={t("right.captureNote")} />
       </section>
     </aside>
   );
@@ -56,6 +66,7 @@ function QuickAction({ icon: Icon, label }: { icon: ComponentType<{ size?: numbe
 }
 
 function CalendarPanel({ isoDate }: { isoDate: string }) {
+  const { language, t } = useI18n();
   const inputDate = new Date(`${isoDate}T12:00:00`);
   const today = Number.isNaN(inputDate.getTime()) ? new Date() : inputDate;
   const year = today.getFullYear();
@@ -75,18 +86,30 @@ function CalendarPanel({ isoDate }: { isoDate: string }) {
   let next = 1;
   while (cells.length < 42) cells.push({ value: next++, dim: true });
 
-  const monthLabel = new Intl.DateTimeFormat("en", { month: "long", year: "numeric" }).format(today);
+  const locale = language === "zh-CN" ? "zh-CN" : "en-US";
+  const monthLabel = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }).format(today);
+  const weekdays = ["calendar.mon", "calendar.tue", "calendar.wed", "calendar.thu", "calendar.fri", "calendar.sat", "calendar.sun"];
 
   return (
     <section className="right-card calendar-card">
       <div className="calendar-head">
         <h3>{monthLabel}</h3>
-        <div><button aria-label="Previous month"><ChevronLeft size={16} /></button><button aria-label="Next month"><ChevronRight size={16} /></button></div>
+        <div>
+          <button aria-label={t("calendar.previous")}><ChevronLeft size={16} /></button>
+          <button aria-label={t("calendar.next")}><ChevronRight size={16} /></button>
+        </div>
       </div>
-      <div className="calendar-weekdays">{["M", "T", "W", "T", "F", "S", "S"].map((d, i) => <span key={`${d}-${i}`}>{d}</span>)}</div>
+      <div className="calendar-weekdays">
+        {weekdays.map((key) => <span key={key}>{t(key)}</span>)}
+      </div>
       <div className="calendar-grid">
         {cells.map((cell, i) => (
-          <span className={`${cell.dim ? "dim " : ""}${cell.active ? "active " : ""}${cell.practiced ? "practiced" : ""}`} key={`${cell.value}-${i}`}>{cell.value}</span>
+          <span
+            className={`${cell.dim ? "dim " : ""}${cell.active ? "active " : ""}${cell.practiced ? "practiced" : ""}`}
+            key={`${cell.value}-${i}`}
+          >
+            {cell.value}
+          </span>
         ))}
       </div>
     </section>
