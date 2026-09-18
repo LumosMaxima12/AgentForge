@@ -6,6 +6,7 @@ requires-python = ">=3.11"
 dependencies = [
   "fastapi[standard]",
   "pydantic-settings",
+  "sqlalchemy>=2.0.52",
 ]
 
 [dependency-groups]
