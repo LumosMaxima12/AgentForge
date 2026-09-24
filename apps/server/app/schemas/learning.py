@@ -15,7 +15,7 @@ class LearningPlanPreviewResponse(BaseModel):
     study_minutes: int
     review_minutes: int
 
-class LearningPlanRespones(BaseModel):
+class LearningPlanResponse(BaseModel):
     id: int
     topic: str
     available_minutes: int

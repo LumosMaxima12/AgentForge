@@ -1,3 +1,4 @@
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 from app.models.learning_plan import LearningPlan
 
@@ -10,6 +11,17 @@ class LearningPlanRepository:
         self.db.commit()
         self.db.refresh(plan)
         return plan
+
+    def get_by_id(self, plan_id: int) -> LearningPlan | None:
+        statement = select(LearningPlan).where(LearningPlan.id == plan_id)
+        result = self.db.execute(statement)
+        return result.scalar_one_or_none()
+
+    def list_all(self) -> list[LearningPlan]:
+        statement = select(LearningPlan)
+        result = self.db.execute(statement)
+        return list(result.scalars().all())
+
 
 from fastapi import Depends
 from app.core.database import get_db

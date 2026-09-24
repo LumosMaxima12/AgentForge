@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "AgentForge FastAPI backend"
 requires-python = ">=3.11"
 dependencies = [
+  "alembic>=1.20.0",
   "fastapi[standard]",
   "pydantic-settings",
   "sqlalchemy>=2.0.52",
