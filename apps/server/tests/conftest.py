@@ -1,22 +1,20 @@
+from fastapi.testclient import TestClient
 import pytest
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import StaticPool
 
-from app.core.database import Base
-from app.models.learning_plan import LearningPlan
-from collections.abc import Generator
-from fastapi.testclient import TestClient
+from app.core.database import Base, get_db
 from app.main import app
-from app.core.database import get_db
-import app.models.learning_plan
-SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+from app.models.learning_plan import LearningPlan
+SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URI,
     connect_args={
         "check_same_thread": False,
     },
+    poolclass=StaticPool,
 )
 
 TestingSessionLocal = sessionmaker(

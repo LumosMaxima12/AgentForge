@@ -22,7 +22,13 @@ def test_get_learning_plan(db_session, learning_plan):
 def test_list_learning_plans(db_session, learning_plan):
     repository = LearningPlanRepository(db_session)
     for i in range(2):
-        plan = learning_plan
+        plan = LearningPlan(
+            topic="FastAPI",
+            available_minutes=60,
+            level="beginner",
+            study_minutes=48,
+            review_minutes=12,
+        )
         repository.create(plan)
     result: list[LearningPlan] = repository.list_all()
     assert len(result) == 2
