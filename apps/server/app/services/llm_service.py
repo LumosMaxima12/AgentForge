@@ -15,3 +15,6 @@ class LLMService:
         )
 
         return response.output_text
+
+def get_llm_service() -> LLMService:
+    return LLMService()
