@@ -3,9 +3,12 @@ from fastapi import APIRouter
 from app.api.v1.health import router as health_router
 from app.api.v1.today import router as today_router
 from app.api.v1.learning import router as learning_router
+from app.api.v1.ai import router as ai_router
 
 api_router = APIRouter()
 api_router.include_router(health_router, tags=["system"])
 api_router.include_router(today_router, prefix="/today", tags=["today"])
 
 api_router.include_router(learning_router, prefix = "/learning", tags=["learning"])
+
+api_router.include_router(ai_router, prefix = "/ai", tags=["ai"])
